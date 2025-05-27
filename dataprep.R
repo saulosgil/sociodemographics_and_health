@@ -66,12 +66,12 @@ whoqol <-
 df <-
   bind_cols(
   caracteristicas,
-  sociodemografico,
   inseguranca_alimentar,
   fator_risco_cv,
   sintomas_ansiedade,
   sintomas_depressao,
-  whoqol
+  whoqol,
+  sociodemografico
 )
 
 # verifica as colunas do dataset
@@ -1168,6 +1168,287 @@ df_ajustado <-
     the_world_health_organization_quality_of_life_whoqol_bref_com_que_frequencia_voce_tem_sentimentos_negativos_tais_como_mau_humor_desespero_ansiedade_depressao = as.integer(the_world_health_organization_quality_of_life_whoqol_bref_com_que_frequencia_voce_tem_sentimentos_negativos_tais_como_mau_humor_desespero_ansiedade_depressao)
   )
 
+# quantidade_de_automoveis_de_passeio_exclusivamente_para_uso_particular
+# tira da lista e cria um vetor de quantidade_de_automoveis_de_passeio_exclusivamente_para_uso_particular (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_automoveis_de_passeio_exclusivamente_para_uso_particular,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_automoveis
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_automoveis_de_passeio_exclusivamente_para_uso_particular = d$value
+  ) |>
+  rename(
+    quantidade_de_automoveis = quantidade_de_automoveis_de_passeio_exclusivamente_para_uso_particular
+  )
+
+# quantidade_de_empregados_mensalistas_considerando_apenas_os_que_trabalham_pelo_menos_cinco_dias_por_semana
+# tira da lista e cria um vetor de quantidade_de_empregados_mensalistas_considerando_apenas_os_que_trabalham_pelo_menos_cinco_dias_por_semana (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_empregados_mensalistas_considerando_apenas_os_que_trabalham_pelo_menos_cinco_dias_por_semana,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_empregados_mensalistas
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_empregados_mensalistas_considerando_apenas_os_que_trabalham_pelo_menos_cinco_dias_por_semana = d$value
+  ) |>
+  rename(
+    quantidade_de_empregados = quantidade_de_empregados_mensalistas_considerando_apenas_os_que_trabalham_pelo_menos_cinco_dias_por_semana
+  )
+
+# quantidade_de_maquinas_de_lavar_roupa_excluindo_tanquinho
+# tira da lista e cria um vetor de quantidade_de_maquinas_de_lavar_roupa_excluindo_tanquinho (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_maquinas_de_lavar_roupa_excluindo_tanquinho,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_maquinas_de_lavar
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_maquinas_de_lavar_roupa_excluindo_tanquinho = d$value
+  ) |>
+  rename(
+    quantidade_de_maquinas_de_lavar = quantidade_de_maquinas_de_lavar_roupa_excluindo_tanquinho
+  )
+
+# quantidade_de_banheiros
+# tira da lista e cria um vetor de quantidade_de_banheiros (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_banheiros,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_banheiros
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_banheiros = d$value
+  )
+
+# dvd_incluindo_qualquer_dispositivo_que_leia_dvd_e_desconsiderando_dvd_de_automovel
+# tira da lista e cria um vetor de dvd_incluindo_qualquer_dispositivo_que_leia_dvd_e_desconsiderando_dvd_de_automovel (porém as linhas erradas foram excluidas)
+d <- unlist(df$dvd_incluindo_qualquer_dispositivo_que_leia_dvd_e_desconsiderando_dvd_de_automovel,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de dvd_incluindo_qualquer_dispositivo_que_leia_dvd_e_desconsiderando_dvd_de_automovel
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    dvd_incluindo_qualquer_dispositivo_que_leia_dvd_e_desconsiderando_dvd_de_automovel = d$value
+  ) |>
+  rename(
+    dvd = dvd_incluindo_qualquer_dispositivo_que_leia_dvd_e_desconsiderando_dvd_de_automovel
+  )
+
+# quantidade_de_geladeiras
+# tira da lista e cria um vetor de quantidade_de_geladeiras (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_geladeiras,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de dvd_incluindo_qualquer_dispositivo_que_leia_dvd_e_desconsiderando_dvd_de_automovel
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_geladeiras = d$value
+  )
+
+# quantidade_de_freezers_independentes_ou_parte_da_geladeira_duplex
+# tira da lista e cria um vetor de quantidade_de_freezers_independentes_ou_parte_da_geladeira_duplex (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_freezers_independentes_ou_parte_da_geladeira_duplex,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_freezers_independentes_ou_parte_da_geladeira_duplex
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_freezers_independentes_ou_parte_da_geladeira_duplex = d$value
+  ) |>
+  rename(
+    quantidade_de_freezers = quantidade_de_freezers_independentes_ou_parte_da_geladeira_duplex
+  )
+
+
+# quantidade_de_microcomputadores_considerando_computadores_de_mesa_laptops_notebooks_e_netbooks_e_desconsiderando_tablets_palms_ou_smartphones
+# tira da lista e cria um vetor de quantidade_de_microcomputadores_considerando_computadores_de_mesa_laptops_notebooks_e_netbooks_e_desconsiderando_tablets_palms_ou_smartphones (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_microcomputadores_considerando_computadores_de_mesa_laptops_notebooks_e_netbooks_e_desconsiderando_tablets_palms_ou_smartphones,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_microcomputadores_considerando_computadores_de_mesa_laptops_notebooks_e_netbooks_e_desconsiderando_tablets_palms_ou_smartphones
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_microcomputadores_considerando_computadores_de_mesa_laptops_notebooks_e_netbooks_e_desconsiderando_tablets_palms_ou_smartphones = d$value
+  ) |>
+  rename(
+    quantidade_de_microcomputadores = quantidade_de_microcomputadores_considerando_computadores_de_mesa_laptops_notebooks_e_netbooks_e_desconsiderando_tablets_palms_ou_smartphones
+  )
+
+# quantidade_de_lavadora_de_loucas
+# tira da lista e cria um vetor de quantidade_de_lavadora_de_loucas (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_lavadora_de_loucas,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_lavadora_de_loucas = d$value
+  ) |>
+  rename(
+    quantidade_de_lava_loucas = quantidade_de_lavadora_de_loucas
+  )
+
+# quantidade_de_fornos_de_micro_ondas
+# tira da lista e cria um vetor de quantidade_de_fornos_de_micro_ondas (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_fornos_de_micro_ondas,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_fornos_de_micro_ondas
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_fornos_de_micro_ondas = d$value
+  ) |>
+  rename(
+    quantidade_micro_ondas = quantidade_de_fornos_de_micro_ondas
+  )
+
+# quantidade_de_motocicletas_desconsiderando_as_usadas_exclusivamente_para_uso_profissional
+# tira da lista e cria um vetor de quantidade_de_motocicletas_desconsiderando_as_usadas_exclusivamente_para_uso_profissional (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_motocicletas_desconsiderando_as_usadas_exclusivamente_para_uso_profissional,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_motocicletas_desconsiderando_as_usadas_exclusivamente_para_uso_profissional
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_motocicletas_desconsiderando_as_usadas_exclusivamente_para_uso_profissional = d$value
+  ) |>
+  rename(
+    quantidade_de_motocicletas = quantidade_de_motocicletas_desconsiderando_as_usadas_exclusivamente_para_uso_profissional
+  )
+
+# quantidade_de_maquinas_secadoras_de_roupas_considerando_lava_e_seca
+# tira da lista e cria um vetor de quantidade_de_maquinas_secadoras_de_roupas_considerando_lava_e_seca (porém as linhas erradas foram excluidas)
+d <- unlist(df$quantidade_de_maquinas_secadoras_de_roupas_considerando_lava_e_seca,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de quantidade_de_maquinas_secadoras_de_roupas_considerando_lava_e_seca
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    quantidade_de_maquinas_secadoras_de_roupas_considerando_lava_e_seca = d$value
+  ) |>
+  rename(
+    quantidade_secadoras = quantidade_de_maquinas_secadoras_de_roupas_considerando_lava_e_seca
+  )
+
+# a_agua_utilizada_neste_domicilio_e_proveniente_de
+# tira da lista e cria um vetor de a_agua_utilizada_neste_domicilio_e_proveniente_de (porém as linhas erradas foram excluidas)
+d <- unlist(df$a_agua_utilizada_neste_domicilio_e_proveniente_de,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de a_agua_utilizada_neste_domicilio_e_proveniente_de
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    a_agua_utilizada_neste_domicilio_e_proveniente_de = d$value
+  ) |>
+  rename(
+    agua_domicilio = a_agua_utilizada_neste_domicilio_e_proveniente_de
+  )
+
+# considerando_o_trecho_da_rua_do_seu_domicilio_voce_diria_que_a_rua_e
+# tira da lista e cria um vetor de considerando_o_trecho_da_rua_do_seu_domicilio_voce_diria_que_a_rua_e (porém as linhas erradas foram excluidas)
+d <- unlist(df$considerando_o_trecho_da_rua_do_seu_domicilio_voce_diria_que_a_rua_e,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de considerando_o_trecho_da_rua_do_seu_domicilio_voce_diria_que_a_rua_e
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    considerando_o_trecho_da_rua_do_seu_domicilio_voce_diria_que_a_rua_e = d$value
+  ) |>
+  rename(
+    pavimentacao = considerando_o_trecho_da_rua_do_seu_domicilio_voce_diria_que_a_rua_e
+  )
+
+
+# qual_e_o_grau_de_instrucao_do_chefe_da_familia_considere_como_chefe_da_familia_a_pessoa_que_contribui_com_a_maior_parte_da_renda_do_domicilio
+# tira da lista e cria um vetor de qual_e_o_grau_de_instrucao_do_chefe_da_familia_considere_como_chefe_da_familia_a_pessoa_que_contribui_com_a_maior_parte_da_renda_do_domicilio (porém as linhas erradas foram excluidas)
+d <- unlist(df$qual_e_o_grau_de_instrucao_do_chefe_da_familia_considere_como_chefe_da_familia_a_pessoa_que_contribui_com_a_maior_parte_da_renda_do_domicilio,
+            use.names = TRUE)
+
+# converte em tibble
+d <- as_tibble(d)
+d
+
+# Muda o vetor original de qual_e_o_grau_de_instrucao_do_chefe_da_familia_considere_como_chefe_da_familia_a_pessoa_que_contribui_com_a_maior_parte_da_renda_do_domicilio
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    qual_e_o_grau_de_instrucao_do_chefe_da_familia_considere_como_chefe_da_familia_a_pessoa_que_contribui_com_a_maior_parte_da_renda_do_domicilio = d$value
+  ) |>
+  rename(
+    instrucao_chefe_fam = qual_e_o_grau_de_instrucao_do_chefe_da_familia_considere_como_chefe_da_familia_a_pessoa_que_contribui_com_a_maior_parte_da_renda_do_domicilio
+  )
+
 # Ajustando as colunas circunferencia de cintura e quadril
 df_ajustado <-
   df_ajustado |>
@@ -1396,6 +1677,143 @@ df_ajustado <-
          -starts_with(match = "inventario_de_ansiedade"),
          -starts_with(match = "inventario_de_depressao")
          )
+
+# Calculo ABEP
+df_ajustado <-
+  df_ajustado|>
+  mutate(
+    quantidade_de_automoveis = case_when(
+      quantidade_de_automoveis == "NÃO POSSUI" ~ 0,
+      quantidade_de_automoveis == "1" ~ 3,
+      quantidade_de_automoveis == "2" ~ 5,
+      quantidade_de_automoveis == "3" ~ 8,
+      quantidade_de_automoveis == "4" ~ 11,
+      .default = as.integer(quantidade_de_automoveis)
+    ),
+    quantidade_de_banheiros = case_when(
+      quantidade_de_banheiros == "NÃO POSSUI" ~ 0,
+      quantidade_de_banheiros == "1" ~ 3,
+      quantidade_de_banheiros == "2" ~ 7,
+      quantidade_de_banheiros == "3" ~ 10,
+      quantidade_de_banheiros == "4" ~ 14,
+      .default = as.integer(quantidade_de_banheiros)
+    ),
+    quantidade_de_empregados = case_when(
+      quantidade_de_empregados == "NÃO POSSUI" ~ 0,
+      quantidade_de_empregados == "1" ~ 3,
+      quantidade_de_empregados == "2" ~ 7,
+      quantidade_de_empregados == "3" ~ 10,
+      quantidade_de_empregados == "4" ~ 13,
+      .default = as.integer(quantidade_de_empregados)
+    ),
+    quantidade_de_microcomputadores = case_when(
+      quantidade_de_microcomputadores == "NÃO POSSUI" ~ 0,
+      quantidade_de_microcomputadores == "1" ~ 3,
+      quantidade_de_microcomputadores == "2" ~ 6,
+      quantidade_de_microcomputadores == "3" ~ 8,
+      quantidade_de_microcomputadores == "4" ~ 11,
+      .default = as.integer(quantidade_de_microcomputadores)
+    ),
+    quantidade_de_lava_loucas = case_when(
+      quantidade_de_lava_loucas == "NÃO POSSUI" ~ 0,
+      quantidade_de_lava_loucas == "1" ~ 3,
+      quantidade_de_lava_loucas == "2" ~ 6,
+      quantidade_de_lava_loucas == "3" ~ 6,
+      quantidade_de_lava_loucas == "4" ~ 6,
+      .default = as.integer(quantidade_de_lava_loucas)
+    ),
+    quantidade_de_geladeiras = case_when(
+      quantidade_de_geladeiras == "NÃO POSSUI" ~ 0,
+      quantidade_de_geladeiras == "1" ~ 2,
+      quantidade_de_geladeiras == "2" ~ 3,
+      quantidade_de_geladeiras == "3" ~ 5,
+      quantidade_de_geladeiras == "4" ~ 5,
+      .default = as.integer(quantidade_de_geladeiras)
+    ),
+    quantidade_de_freezers = case_when(
+      quantidade_de_freezers == "NÃO POSSUI" ~ 0,
+      quantidade_de_freezers == "1" ~ 2,
+      quantidade_de_freezers == "2" ~ 4,
+      quantidade_de_freezers == "3" ~ 6,
+      quantidade_de_freezers == "4" ~ 6,
+      .default = as.integer(quantidade_de_freezers)
+    ),
+    quantidade_de_maquinas_de_lavar = case_when(
+      quantidade_de_maquinas_de_lavar == "NÃO POSSUI" ~ 0,
+      quantidade_de_maquinas_de_lavar == "1" ~ 2,
+      quantidade_de_maquinas_de_lavar == "2" ~ 4,
+      quantidade_de_maquinas_de_lavar == "3" ~ 6,
+      quantidade_de_maquinas_de_lavar == "4" ~ 6,
+      .default = as.integer(quantidade_de_maquinas_de_lavar)
+    ),
+    dvd = case_when(
+      dvd == "NÃO POSSUI" ~ 0,
+      dvd == "1" ~ 1,
+      dvd == "2" ~ 3,
+      dvd == "3" ~ 4,
+      dvd == "4" ~ 5,
+      .default = as.integer(dvd)
+    ),
+    quantidade_micro_ondas = case_when(
+      quantidade_micro_ondas == "NÃO POSSUI" ~ 0,
+      quantidade_micro_ondas == "1" ~ 2,
+      quantidade_micro_ondas == "2" ~ 4,
+      quantidade_micro_ondas == "3" ~ 4,
+      quantidade_micro_ondas == "4" ~ 4,
+      .default = as.integer(quantidade_micro_ondas)
+    ),
+    quantidade_de_motocicletas = case_when(
+      quantidade_de_motocicletas == "NÃO POSSUI" ~ 0,
+      quantidade_de_motocicletas == "1" ~ 1,
+      quantidade_de_motocicletas == "2" ~ 3,
+      quantidade_de_motocicletas == "3" ~ 3,
+      quantidade_de_motocicletas == "4" ~ 3,
+      .default = as.integer(quantidade_de_motocicletas)
+    ),
+    quantidade_secadoras = case_when(
+      quantidade_secadoras == "NÃO POSSUI" ~ 0,
+      quantidade_secadoras == "1" ~ 2,
+      quantidade_secadoras == "2" ~ 2,
+      quantidade_secadoras == "3" ~ 2,
+      quantidade_secadoras == "4" ~ 2,
+      .default = as.integer(quantidade_secadoras)
+    ),
+    instrucao_chefe_fam = case_when(
+      instrucao_chefe_fam == "analfabeto / fundamental i incompleto" ~ 0,
+      instrucao_chefe_fam == "medio completo/superior incompleto" ~ 1,
+      instrucao_chefe_fam == "fundamental completo/medio incompleto" ~ 2,
+      instrucao_chefe_fam == "fundamental i completo / fundamental ii incompleto" ~ 4,
+      instrucao_chefe_fam == "superior completo" ~ 7,
+      .default = as.integer(instrucao_chefe_fam)
+    ),
+    agua_domicilio = case_when(
+      agua_domicilio == "rede geral de distribuicao/agua encanada" ~ 4,
+      agua_domicilio == "poco ou nascente" ~ 0,
+      .default = as.integer(agua_domicilio)
+    ),
+    pavimentacao = case_when(
+      pavimentacao == "asfaltada/pavimentada" ~ 2,
+      pavimentacao == "terra/cascalho" ~ 0,
+      .default = as.integer(pavimentacao)
+    )
+  )
+
+# Calculo do Score ABEP e rotulacao
+df_ajustado <-
+  df_ajustado |>
+  mutate(
+    abep_score = apply(df_ajustado[, 35:49],MARGIN = 1,FUN = sum)
+  ) |>
+  mutate(
+    abep_class = case_when(
+      abep_score >= 45 ~ "A",
+      abep_score >=38 & abep_score <=44 ~ "B1",
+      abep_score >=29 & abep_score <=37 ~ "B2",
+      abep_score >=23 & abep_score <=28 ~ "C1",
+      abep_score >=17 & abep_score <=22 ~ "C2",
+      abep_score <=16 ~ "DE"
+    )
+  )
 
 # calculo dos WHOQoL --------------------------------------------------------------------------
 df_ajustado <-
@@ -1640,6 +2058,17 @@ DataExplorer::plot_missing(df)
 # visualizando a base final -------------------------------------------------------------------
 glimpse(df)
 
+# Removendo as variaveis que não serão usadas
+df <-
+  df |>
+  select(
+    - starts_with("quant"),
+    - dvd,
+    - agua_domicilio,
+    - pavimentacao,
+    - instrucao_chefe_fam
+  )
+
 # tabela para analise -------------------------------------------------------------------------
-write_rds(x = df,file =  "df_para_analise.rds") # tirar o comentário para salvar
-# write_csv2(x = df,file =  "dfParaAnaliseCris.csv") # tirar o comentário para salvar
+write_rds(x = df,file =  "data/df_para_analise.rds") # tirar o comentário para salvar
+write_csv2(x = df,file =  "data/dfParaAnaliseCamilla.csv") # tirar o comentário para salvar
