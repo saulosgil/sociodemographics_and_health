@@ -70,7 +70,10 @@ fisico_boxplot <-
   theme_classic() +
   xlab("") +
   ylab("WHO-QoL score\nPhysical Domain (a.u.)") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label)  # remove legend label
 
 fisico_boxplot
 
@@ -127,8 +130,8 @@ fisico_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals with poor quality of life\n Physical Domain (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
@@ -151,7 +154,10 @@ psy_boxplot <-
   theme_classic() +
   xlab("") +
   ylab("WHO-QoL score\nPsychological Domain (a.u.)") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label)  # remove legend label
 
 psy_boxplot
 
@@ -208,8 +214,8 @@ psy_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals with poor quality of life\n Psychological Domain (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
@@ -232,7 +238,10 @@ social_boxplot <-
   theme_classic() +
   xlab("") +
   ylab("WHO-QoL score\nSocial Domain (a.u.)") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label)  # remove legend label)  # remove legend label
 
 social_boxplot
 
@@ -289,8 +298,8 @@ social_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals with poor quality of life\nSocial Domain ($)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
@@ -313,7 +322,10 @@ ambiente_boxplot <-
   theme_classic() +
   xlab("") +
   ylab("WHO-QoL score\nEnvironment Domain (a.u.)") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label)  # remove legend label
 
 ambiente_boxplot
 
@@ -370,8 +382,8 @@ ambiente_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals with poor quality of life\nEnvironment Domain (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))

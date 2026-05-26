@@ -42,7 +42,10 @@ dep_boxplot <-
   theme_classic() +
   xlab("") +
   ylab(" Beck Depression Inventory Score (a.u.)") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label
 
 dep_boxplot
 
@@ -99,8 +102,8 @@ dep_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals showing moderate/severe\n symptoms of depression (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
@@ -123,7 +126,10 @@ ans_boxplot <-
   theme_classic() +
   xlab("") +
   ylab(" Beck Anxiety Inventory Score (a.u.)") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label
 
 ans_boxplot
 
@@ -180,8 +186,8 @@ ans_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals showing moderate/severe\n symptoms of anxiety (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))

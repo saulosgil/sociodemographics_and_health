@@ -81,7 +81,10 @@ icq_boxplot <-
   theme_classic() +
   xlab("") +
   ylab(" Waist-to-hip ratio (a.u.)") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label
 
 icq_boxplot
 
@@ -138,8 +141,8 @@ icq_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals with increased risk of\n cardiometabolic diseases (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
@@ -162,7 +165,10 @@ bmi_boxplot <-
   theme_classic() +
   xlab("") +
   ylab(" Body Mass Index") +
-  theme(legend.title = element_blank())  # remove legend label
+  theme(legend.title = element_blank(),
+        # But customize labels for the horizontal axis
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))  # remove legend label
 
 bmi_boxplot
 
@@ -219,8 +225,8 @@ bmi_categ <-
     # Only left line of the vertical axis is painted in black
     axis.line.y.left = element_line(color = "black"),
     # But customize labels for the horizontal axis
-    axis.text.x = element_text(size = 10),
-    axis.text.y = element_text(size = 10)
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) +
   ylab("Frequency of individuals with obesity (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
