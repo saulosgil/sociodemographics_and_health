@@ -395,10 +395,18 @@ ambiente_boxplot+ambiente_categ
 
 ## Final layout
 
-(fisico_boxplot+fisico_categ)/(psy_boxplot+psy_categ)
-(social_boxplot+social_categ)/(ambiente_boxplot+ambiente_categ)
+fig3 <- (fisico_boxplot+fisico_categ)/(psy_boxplot+psy_categ)/(social_boxplot+social_categ)/(ambiente_boxplot+ambiente_categ)
 
-
+ggsave(
+  filename = "figures/Figure_3_qol_600dpi.tiff",
+  plot = fig3,
+  width = 14,
+  height = 16.5,
+  units = "in",
+  dpi = 600,
+  compression = "lzw",
+  bg = "white"
+)
 
 
 

@@ -3,6 +3,40 @@ library(tidyverse)
 library(ggstatsplot)
 library(patchwork)
 
+# Plots formato
+theme_manuscript <- function(base_size = 16) {
+  theme_classic(base_size = base_size) +
+    theme(
+      text = element_text(colour = "black"),
+      axis.title = element_text(size = base_size, colour = "black"),
+      axis.text = element_text(size = base_size - 1, colour = "black"),
+      axis.line = element_line(linewidth = 0.7, colour = "black"),
+      axis.ticks = element_line(linewidth = 0.6, colour = "black"),
+      legend.title = element_blank(),
+      legend.text = element_text(size = base_size - 1),
+      legend.position = "right",
+      plot.tag = element_text(size = base_size + 6, face = "bold"),
+      plot.margin = margin(8, 12, 8, 8)
+    )
+}
+
+theme_bar_manuscript <- function(base_size = 16) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      text = element_text(colour = "black"),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.grid.major.y = element_line(colour = "grey80", linewidth = 0.45),
+      axis.title = element_text(size = base_size, colour = "black"),
+      axis.text = element_text(size = base_size - 1, colour = "black"),
+      axis.line.x = element_line(linewidth = 0.7, colour = "black"),
+      axis.line.y = element_line(linewidth = 0.7, colour = "black"),
+      axis.ticks = element_line(linewidth = 0.6, colour = "black"),
+      legend.position = "none",
+      plot.tag = element_text(size = base_size + 6, face = "bold"),
+      plot.margin = margin(8, 12, 8, 8)
+    )
+}
 # Download dataset ----------------------------------------------------------------------------
 df <- read_rds("data/df_para_analise.rds")
 
@@ -47,7 +81,7 @@ dep_boxplot <-
         axis.text.x = element_text(size = 12),
         axis.text.y = element_text(size = 12))  # remove legend label
 
-dep_boxplot
+dep_boxplot+theme_manuscript()
 
 ### Frequência de sintomas depressao
 df |>
@@ -108,7 +142,7 @@ dep_categ <-
   ylab("Frequency of individuals showing moderate/severe\n symptoms of depression (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
 
-dep_categ
+dep_categ+theme_bar_manuscript()
 
 
 dep_boxplot+dep_categ
@@ -131,7 +165,7 @@ ans_boxplot <-
         axis.text.x = element_text(size = 12),
         axis.text.y = element_text(size = 12))  # remove legend label
 
-ans_boxplot
+ans_boxplot+theme_manuscript()
 
 ### Frequência de sintomas ansiedade
 df |>
@@ -192,17 +226,26 @@ ans_categ <-
   ylab("Frequency of individuals showing moderate/severe\n symptoms of anxiety (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
 
-ans_categ
+ans_categ+theme_bar_manuscript()
 
 
 ans_boxplot+ans_categ
 
 ## Final layout
 
-(dep_boxplot+dep_categ)/(ans_boxplot+ans_categ)
+fig1 <- (dep_boxplot+dep_categ)/(ans_boxplot+ans_categ)
 
 
-
+ggsave(
+  filename = "figures/Figure_1_depression_anxiety_600dpi.tiff",
+  plot = fig1,
+  width = 14,
+  height = 8.5,
+  units = "in",
+  dpi = 600,
+  compression = "lzw",
+  bg = "white"
+)
 
 
 

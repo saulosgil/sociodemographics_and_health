@@ -3,6 +3,40 @@ library(tidyverse)
 library(ggstatsplot)
 library(patchwork)
 
+# Plots formato
+theme_manuscript <- function(base_size = 16) {
+  theme_classic(base_size = base_size) +
+    theme(
+      text = element_text(colour = "black"),
+      axis.title = element_text(size = base_size, colour = "black"),
+      axis.text = element_text(size = base_size - 1, colour = "black"),
+      axis.line = element_line(linewidth = 0.7, colour = "black"),
+      axis.ticks = element_line(linewidth = 0.6, colour = "black"),
+      legend.title = element_blank(),
+      legend.text = element_text(size = base_size - 1),
+      legend.position = "right",
+      plot.tag = element_text(size = base_size + 6, face = "bold"),
+      plot.margin = margin(8, 12, 8, 8)
+    )
+}
+
+theme_bar_manuscript <- function(base_size = 16) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      text = element_text(colour = "black"),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.grid.major.y = element_line(colour = "grey80", linewidth = 0.45),
+      axis.title = element_text(size = base_size, colour = "black"),
+      axis.text = element_text(size = base_size - 1, colour = "black"),
+      axis.line.x = element_line(linewidth = 0.7, colour = "black"),
+      axis.line.y = element_line(linewidth = 0.7, colour = "black"),
+      axis.ticks = element_line(linewidth = 0.6, colour = "black"),
+      legend.position = "none",
+      plot.tag = element_text(size = base_size + 6, face = "bold"),
+      plot.margin = margin(8, 12, 8, 8)
+    )
+}
 # Download dataset ----------------------------------------------------------------------------
 df <- read_rds("data/df_para_analise.rds")
 
@@ -86,7 +120,7 @@ icq_boxplot <-
         axis.text.x = element_text(size = 12),
         axis.text.y = element_text(size = 12))  # remove legend label
 
-icq_boxplot
+icq_boxplot+theme_manuscript()
 
 ### Frequência de sintomas fator de risco cv aumentado
 df |>
@@ -147,7 +181,7 @@ icq_categ <-
   ylab("Frequency of individuals with increased risk of\n cardiometabolic diseases (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
 
-icq_categ
+icq_categ+theme_bar_manuscript()
 
 
 icq_boxplot+icq_categ
@@ -170,7 +204,7 @@ bmi_boxplot <-
         axis.text.x = element_text(size = 12),
         axis.text.y = element_text(size = 12))  # remove legend label
 
-bmi_boxplot
+bmi_boxplot+theme_manuscript()
 
 ### Frequência de sintomas bmi
 df |>
@@ -231,14 +265,26 @@ bmi_categ <-
   ylab("Frequency of individuals with obesity (%)") +
   scale_x_discrete(limits = c("B", "C", "DE"))
 
-bmi_categ
+bmi_categ+theme_bar_manuscript()
 
 
 bmi_boxplot+bmi_categ
 
 ## Final layout
 
-(icq_boxplot+icq_categ)/(bmi_boxplot+bmi_categ)
+fig2 <- (icq_boxplot+icq_categ)/(bmi_boxplot+bmi_categ)
+
+ggsave(
+  filename = "figures/Figure_2_icq_bmi_600dpi.tiff",
+  plot = fig2,
+  width = 14,
+  height = 8.5,
+  units = "in",
+  dpi = 600,
+  compression = "lzw",
+  bg = "white"
+)
+
 
 
 
